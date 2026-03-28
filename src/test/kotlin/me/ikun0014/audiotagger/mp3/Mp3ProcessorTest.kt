@@ -1,7 +1,7 @@
 package me.ikun0014.audiotagger.mp3
 
 import me.ikun0014.audiotagger.MusicMeta
-import me.ikun0014.audiotagger.setMeta
+import me.ikun0014.audiotagger.MusicTagger
 import java.io.ByteArrayOutputStream
 import java.io.DataOutputStream
 import java.io.File
@@ -207,12 +207,12 @@ class Mp3ProcessorTest {
             initial.title = "Original Title"
             initial.artist = "Original Artist"
             initial.album = "Original Album"
-            setMeta(tempFile.absolutePath, initial)
+            MusicTagger.setMeta(tempFile.absolutePath, initial)
 
             // Update only title, leave artist and album null
             val update = MusicMeta()
             update.title = "New Title"
-            setMeta(tempFile.absolutePath, update)
+            MusicTagger.setMeta(tempFile.absolutePath, update)
 
             val result = Mp3Processor.read(tempFile.absolutePath)
             assertNotNull(result)

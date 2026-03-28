@@ -9,12 +9,13 @@ class MainTest {
         meta.title = "将进酒"
         meta.artist = "凤凰传奇"
         meta.album = "经典咏流传 第11期"
-        setMeta("src/test/resources/test.mp3", meta)
+
+        MusicTagger.setMeta("src/test/resources/test.mp3", meta)
     }
 
     @Test
     fun `test read meta`() {
-        val meta = getMeta("src/test/resources/test.mp3")
+        val meta = MusicTagger.getMeta("src/test/resources/test.mp3")
         if (meta != null) {
             println(meta.title)
             println(meta.artist)
